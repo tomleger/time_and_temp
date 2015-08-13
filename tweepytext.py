@@ -19,14 +19,6 @@ auth =  tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-#test code from tweepy
-#
-#public_tweets = api.home_timeline()
-#for tweet in public_tweets:
-#	print tweet.text
-
-# Start of Tom's code
-
 #Get the weather information from Wunderground API in JSON format
 def check_weather():
 	f = urllib2.urlopen(wu_api_url + wu_api_key + wu_api_query)
@@ -51,10 +43,6 @@ def icon_update(current_icon):
 	with open("icon.gif", "wb") as code:
 		code.write(icon_file)
 	api.update_profile_image('icon.gif')
-
-#print "The temperature is ",  current_temp
-#print "The time is ",  str(current_time)
-#print "The URL for the current icon is", current_icon
 
 
 def tweet_time_temp():
